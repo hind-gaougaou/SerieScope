@@ -35,11 +35,19 @@ function afficheformule(){
     soustitre.classList=""
 
     const sousparaghraph=document.createElement("p")
+   
     
+   const ajout=document.createElement("div")
     const serietitre=document.createElement("label")
     serietitre.textContent=""
+    serietitre.htmlFor=""
+
+    const titreinput=document.create
 
 
+
+
+    
 }
 
 function affichercarte(series) {

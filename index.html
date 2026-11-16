@@ -1,26 +1,61 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Serie-Scope</title>
     <link href="./css/output.css" rel="stylesheet" />
-  </head>
-  <header></header>
-  <body>
-    <main class="bg-[#080808] ">
-      <form></form>
+    <script type="module" src="./src/main.js" defer></script>
+    <script src="https://unpkg.com/axios@<x.x.x>/dist/axios.min.js"></script>
+</head>
 
-      <!--  -->
 
-      <section >
-        <div id="search" class="bg-[#191919] border border-[#303030] rounded-xl grid grid-cols-1  md:grid-cols-[1fr_1fr_auto] gap-4 p-3 items-end" >
+<body>
+    <header class="bg-black border-b border-[#1f1f1f]">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-white text-black flex items-center justify-center font-bold"><img src="c:\Users\Youcode\Downloads\Vector.png" alt="icon"></div>
+            <span class="font-semibold text-lg">Seriescope</span>
         </div>
-        <div
-          id="catalogue"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <!-- <article class="bg-[#191919] border border-[#303030] rounded-xl overflow-hidden">
+    </header>
+    <main class="bg-[#080808] ">
+        <form class="">
+            <h1 class="text-3xl text-white font-bold">Explore les séries TV</h1>
+            <p class="text-sm text-neutral-400 mt-1">Retrouve tes séries préférées et enrichis le catalogue.</p>
+            <div class="p-15">
+                <h3 class="text-2xl text-white">Ajouter une série</h3>
+                <p class="text-sm text-neutral-400 mt-1">Les champs marqués d’un * sont obligatoires.</p>
+                <div class="">
+                    <div class="flex gap-4">
+                        <div class="flex flex-col">
+                        <label class="text-1xl text-white" for="Nom">Nom de la série *</label>
+                        <input class="rounded-lg border border-neutral-800 bg-[#1a1a1a] px-4 py-3 text-sm
+                   text-white " type="text" placeholder="Ex. The Bear" required>
+                   </div>
+                        <div class="flex flex-col">
+                             <label class="text-1xl text-white" for="Genre">Genre(s) *</label>
+                            <input class=" rounded-lg border border-neutral-800 bg-[#1a1a1a] px-4 py-3 text-sm"
+                                type="text" placeholder="Ex. Drame, Comédie">
+                        </div>
+                    </div>
+                    <div class="">
+                        <label class="text-1xl text-white" for="Description">Description</label>
+                        <input class="rounded-lg border border-neutral-800 bg-[#1a1a1a] px-4 py-3 text-sm w-full"
+                            type="text" placeholder="Résume la série en quelques mots…" required>
+                    </div>
+                    <button class="bg-white text-1xl text-black p-2 my-3 rounded-lg ">＋ Ajouter la série</button>
+                </div>
+            </div>
+        </form>
+
+        <!--  -->
+
+        <section>
+            <div id="search"
+                class="bg-[#191919] border border-[#303030] rounded-xl grid grid-cols-1  md:grid-cols-[1fr_1fr_auto] gap-4 p-3 items-end">
+            </div>
+            <div id="catalogue" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- <article class="bg-[#191919] border border-[#303030] rounded-xl overflow-hidden">
       <img src=""
            alt="Affiche de Breaking Bad"
            class="w-full h-64 object-cover bg-[#292929]">
@@ -35,7 +70,7 @@
       </div>
     </article> -->
 
-          <!-- 
+                <!-- 
 <article class="bg-[#191919] border border-[#303030] rounded-xl overflow-hidden">
       <img src=""
            alt="Affiche de Breaking Bad"
@@ -64,9 +99,10 @@
         <p class="text-neutral-400 text-sm">Un professeur de chimie mène une double vie.</p>
       </div>
     </article> -->
-        </div>
-      </section>
+            </div>
+        </section>
     </main>
     <script src="js/app.js"></script>
-  </body>
+</body>
+
 </html>
