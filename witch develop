@@ -1,0 +1,338 @@
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 49089ed..53f26fe 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -6,47 +6,88 @@[m
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />[m
+     <title>Serie-Scope</title>[m
+     <link href="./css/output.css" rel="stylesheet" />[m
+[32m+[m[32m    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>[m
+     <script type="module" src="./src/main.js" defer></script>[m
+[31m-    <script src="https://unpkg.com/axios@<x.x.x>/dist/axios.min.js"></script>[m
+ </head>[m
+ [m
+ [m
+ <body>[m
+     <header class="bg-black border-b border-[#1f1f1f]">[m
+         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center gap-3">[m
+[31m-            <div class="w-9 h-9 rounded-lg bg-white text-black flex items-center justify-center font-bold"><img src="c:\Users\Youcode\Downloads\Vector.png" alt="icon"></div>[m
+[32m+[m[32m            <!-- <div class="w-9 h-9 rounded-lg bg-white text-black flex items-center justify-center font-bold"><img src="c:\Users\Youcode\Downloads\Vector.png" alt="icon"></div> -->[m
+             <span class="font-semibold text-lg">Seriescope</span>[m
+         </div>[m
+     </header>[m
+     <main class="bg-[#080808] ">[m
+[31m-        <form class="">[m
+[31m-            <h1 class="text-3xl text-white font-bold">Explore les séries TV</h1>[m
+[31m-            <p class="text-sm text-neutral-400 mt-1">Retrouve tes séries préférées et enrichis le catalogue.</p>[m
+[31m-            <div class="p-15">[m
+[31m-                <h3 class="text-2xl text-white">Ajouter une série</h3>[m
+[31m-                <p class="text-sm text-neutral-400 mt-1">Les champs marqués d’un * sont obligatoires.</p>[m
+[31m-                <div class="">[m
+[31m-                    <div class="flex gap-4">[m
+[31m-                        <div class="flex flex-col">[m
+[31m-                        <label class="text-1xl text-white" for="Nom">Nom de la série *</label>[m
+[31m-                        <input class="rounded-lg border border-neutral-800 bg-[#1a1a1a] px-4 py-3 text-sm[m
+[31m-                   text-white " type="text" placeholder="Ex. The Bear" required>[m
+[31m-                   </div>[m
+[31m-                        <div class="flex flex-col">[m
+[31m-                             <label class="text-1xl text-white" for="Genre">Genre(s) *</label>[m
+[31m-                            <input class=" rounded-lg border border-neutral-800 bg-[#1a1a1a] px-4 py-3 text-sm"[m
+[31m-                                type="text" placeholder="Ex. Drame, Comédie">[m
+[31m-                        </div>[m
+[32m+[m[32m        <section class="max-w-6xl mx-auto px-6 py-6">[m
+[32m+[m[32m            <h1 class="text-3xl text-white font-bold">[m
+[32m+[m[32m                Explore les séries TV[m
+[32m+[m[32m            </h1>[m
+[32m+[m[32m            <p class="text-sm text-neutral-400 mt-1">[m
+[32m+[m[32m                Retrouve tes séries préférées et enrichis le catalogue.[m
+[32m+[m[32m            </p>[m
+[32m+[m[32m             <p id="message" class="text-red-500 text-xl my-2"></p>[m
+[32m+[m[32m            <form id="formulaire-serie" class="bg-[#191919] border border-[#303030] rounded-xl p-3 mt-4 m-3">[m
+[32m+[m[32m                <h3 class="text-xl text-white font-bold">[m
+[32m+[m[32m                    Ajouter une série[m
+[32m+[m[32m                </h3>[m
+[32m+[m
+[32m+[m[32m                <p class="text-sm text-neutral-400 mt-1 mb-4">[m
+[32m+[m[32m                    Les champs marqués d’un * sont obligatoires.[m
+[32m+[m[32m                </p>[m
+[32m+[m
+[32m+[m[32m                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">[m
+[32m+[m
+[32m+[m[32m                    <div class="flex flex-col gap-2">[m
+[32m+[m[32m                        <label class="text-sm text-white" for="nom">[m
+[32m+[m[32m                            Nom de la série *[m
+[32m+[m[32m                        </label>[m
+[32m+[m[32m                        <input id="nom" type="text" placeholder="Ex. The Bear" required[m
+[32m+[m[32m                            class="  rounded-lg border border-neutral-800 bg-[#1a1a1a] px-3 py-2 text-sm text-white outline-none">[m
+                     </div>[m
+[31m-                    <div class="">[m
+[31m-                        <label class="text-1xl text-white" for="Description">Description</label>[m
+[31m-                        <input class="rounded-lg border border-neutral-800 bg-[#1a1a1a] px-4 py-3 text-sm w-full"[m
+[31m-                            type="text" placeholder="Résume la série en quelques mots…" required>[m
+[32m+[m[32m                    <div class="flex flex-col gap-2">[m
+[32m+[m[32m                    <label for="language" class="block text-white text-sm font-medium mb-2">[m
+[32m+[m[32m                        Langue de la série[m
+[32m+[m[32m                    </label>[m
+[32m+[m[32m                    <input type="text" id="language" placeholder="Ex: Français, Anglais..."[m
+[32m+[m[32m                        class="w-full bg-[#191919] border border-[#303030] rounded-lg px-4 py-2 text-white outline-none focus:border-white" /> </div>[m
+[32m+[m[32m                    <div class="flex flex-col gap-2">[m
+[32m+[m[32m                        <label class="text-sm text-white" for="genre">[m
+[32m+[m[32m                            Genre(s) *[m
+[32m+[m[32m                            <span class="text-neutral-500 text-xs">[m
+[32m+[m[32m                                — séparés par des virgules[m
+[32m+[m[32m                            </span>[m
+[32m+[m[32m                        </label>[m
+[32m+[m
+[32m+[m[32m                        <input id="genre" type="text" placeholder="Ex. Drame, Comédie" required[m
+[32m+[m[32m                            class="rounded-lg border border-neutral-800 bg-[#1a1a1a] px-3 py-2 text-sm text-white outline-none">[m
+[32m+[m[32m                    </div>[m
+[32m+[m
+[32m+[m[32m                    <div class="flex flex-col gap-2 md:col-span-2">[m
+[32m+[m[32m                        <label class="text-sm text-white" for="description">[m
+[32m+[m[32m                            Description[m
+[32m+[m[32m                            <span class="text-neutral-500 text-xs">facultative</span>[m
+[32m+[m[32m                        </label>[m
+[32m+[m
+[32m+[m[32m                        <textarea id="description" placeholder="Résume la série en quelques mots..." rows="3"[m
+[32m+[m[32m                            class="rounded-lg border border-neutral-800 bg-[#1a1a1a] px-3 py-2 text-sm text-white outline-none "></textarea>[m
+                     </div>[m
+[31m-                    <button class="bg-white text-1xl text-black p-2 my-3 rounded-lg ">＋ Ajouter la série</button>[m
+[32m+[m
+                 </div>[m
+[31m-            </div>[m
+[31m-        </form>[m
+[32m+[m
+[32m+[m[32m                <button type="submit" class="bg-white text-black text-sm font-semibold px-4 py-2 rounded-lg mt-2">[m
+[32m+[m[32m                    ＋ Ajouter la série[m
+[32m+[m[32m                </button>[m
+[32m+[m[32m                <!-- <div role="alert" class="redalert redalert-success">[m
+[32m+[m[32m            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">[m
+[32m+[m[32m            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />[m
+[32m+[m[32m           </svg>[m
+[32m+[m[32m            <span>Your purchase has been confirmed!</span>[m
+[32m+[m[32m            </div> -->[m
+[32m+[m
+[32m+[m[32m            </form>[m
+[32m+[m[41m         [m
+[32m+[m[32m        </section>[m
+ [m
+         <!--  -->[m
+ [m
+[36m@@ -99,6 +140,7 @@[m
+         <p class="text-neutral-400 text-sm">Un professeur de chimie mène une double vie.</p>[m
+       </div>[m
+     </article> -->[m
+[32m+[m[41m         [m
+             </div>[m
+         </section>[m
+     </main>[m
+[1mdiff --git a/js/app.js b/js/app.js[m
+[1mindex 3b71552..4db71f5 100644[m
+[1m--- a/js/app.js[m
+[1m+++ b/js/app.js[m
+[36m@@ -1,181 +1,181 @@[m
+[31m-const catalogue = document.querySelector("#catalogue");[m
+[31m-const search = document.querySelector("#search");[m
+[31m-let series = [];[m
+[31m-[m
+[31m-let rechercheinput;[m
+[31m-let genreselect;[m
+[31m-[m
+[31m-async function getdata() {[m
+[31m-  try {[m
+[31m-    const responce = await fetch("https://api.tvmaze.com/shows?page=0");[m
+[31m-    const data = await responce.json();[m
+[31m-    console.log(data);[m
+[31m-    series = data.slice(0, 20);[m
+[31m-    remplirgenre();[m
+[31m-    affichercarte(series);[m
+[31m-  } catch (error) {[m
+[31m-    console.error("Erreur :", error);[m
+[31m-  }[m
+[31m-}[m
+[31m-[m
+[31m-function afficheformule(){[m
+[31m-   const title=document.createElement("h1")[m
+[31m-   title.classList=""[m
+[31m-   title.textContent=""[m
+[31m-   const paragraph=document.createElement("p")[m
+[31m-   paragraph.classList=""[m
+[31m-   paragraph.textContent=""[m
+[31m-[m
+[31m-   const formule =document.createElement("div")[m
+[31m-    formule.classList=""[m
+[31m-[m
+[31m-[m
+[31m-    const soustitre=document.createElement("h3")[m
+[31m-    soustitre.textContent=""[m
+[31m-    soustitre.classList=""[m
+[31m-[m
+[31m-    const sousparaghraph=document.createElement("p")[m
+[32m+[m[32m// const catalogue = document.querySelector("#catalogue");[m
+[32m+[m[32m// const search = document.querySelector("#search");[m
+[32m+[m[32m// let series = [];[m
+[32m+[m
+[32m+[m[32m// let rechercheinput;[m
+[32m+[m[32m// let genreselect;[m
+[32m+[m
+[32m+[m[32m// // async function getdata() {[m
+[32m+[m[32m// //   try {[m
+[32m+[m[32m// //     const responce = await fetch("https://api.tvmaze.com/shows?page=0");[m
+[32m+[m[32m// //     const data = await responce.json();[m
+[32m+[m[32m// //     console.log(data);[m
+[32m+[m[32m// //     series = data.slice(0, 20);[m
+[32m+[m[32m// //     remplirgenre();[m
+[32m+[m[32m// //     affichercarte(series);[m
+[32m+[m[32m// //   } catch (error) {[m
+[32m+[m[32m// //     console.error("Erreur :", error);[m
+[32m+[m[32m// //   }[m
+[32m+[m[32m// // }[m
+[32m+[m
+[32m+[m[32m// function afficheformule(){[m
+[32m+[m[32m//    const title=document.createElement("h1")[m
+[32m+[m[32m//    title.classList=""[m
+[32m+[m[32m//    title.textContent=""[m
+[32m+[m[32m//    const paragraph=document.createElement("p")[m
+[32m+[m[32m//    paragraph.classList=""[m
+[32m+[m[32m//    paragraph.textContent=""[m
+[32m+[m
+[32m+[m[32m//    const formule =document.createElement("div")[m
+[32m+[m[32m//     formule.classList=""[m
+[32m+[m
+[32m+[m
+[32m+[m[32m//     const soustitre=document.createElement("h3")[m
+[32m+[m[32m//     soustitre.textContent=""[m
+[32m+[m[32m//     soustitre.classList=""[m
+[32m+[m
+[32m+[m[32m//     const sousparaghraph=document.createElement("p")[m
+    [m
+     [m
+[31m-   const ajout=document.createElement("div")[m
+[31m-    const serietitre=document.createElement("label")[m
+[31m-    serietitre.textContent=""[m
+[31m-    serietitre.htmlFor=""[m
+[32m+[m[32m//    const ajout=document.createElement("div")[m
+[32m+[m[32m//     const serietitre=document.createElement("label")[m
+[32m+[m[32m//     serietitre.textContent=""[m
+[32m+[m[32m//     serietitre.htmlFor=""[m
+ [m
+[31m-    const titreinput=document.create[m
+[32m+[m[32m//     const titreinput=document.create[m
+ [m
+ [m
+ [m
+ [m
+     [m
+[31m-}[m
+[31m-[m
+[31m-function affichercarte(series) {[m
+[31m-  catalogue.innerHTML = "";[m
+[31m-  series.forEach((serie) => {[m
+[31m-    const carte = document.createElement("article");[m
+[31m-    carte.classList =[m
+[31m-      "bg-[#191919] border border-[#303030] rounded-xl overflow-hidden";[m
+[31m-[m
+[31m-    const image = document.createElement("img");[m
+[31m-    image.src = serie.image.medium;[m
+[31m-    image.alt = serie.name;[m
+[31m-    image.classList = "w-full h-64 object-cover block";[m
+[31m-[m
+[31m-    const infos = document.createElement("div");[m
+[31m-    infos.classList = "p-3 space-y-2";[m
+[31m-    const titre = document.createElement("h3");[m
+[31m-    titre.classList = "font-semibold text-white";[m
+[31m-    titre.textContent = serie.name;[m
+[31m-[m
+[31m-    const description = document.createElement("p");[m
+[31m-    description.classList = "line-clamp-2 text-neutral-400 text-sm";[m
+[31m-    description.innerHTML = serie.summary;[m
+[31m-[m
+[31m-    const categorie = document.createElement("div");[m
+[31m-    categorie.classList = "flex flex-wrap gap-1";[m
+[31m-[m
+[31m-    const cat = document.createElement("span");[m
+[31m-    cat.classList = "bg-[#292929] text-xs text-white px-2 py-0.5 rounded-full";[m
+[31m-    cat.textContent = serie.genres;[m
+[31m-[m
+[31m-    categorie.append(cat);[m
+[31m-    infos.append(titre, categorie, description);[m
+[31m-    carte.append(image, infos);[m
+[31m-    catalogue.appendChild(carte);[m
+[31m-  });[m
+[31m-}[m
+[31m-[m
+[31m-function recherchetfitre() {[m
+[31m-  //  RECHERCHER[m
+[31m-  const divrecherche = document.createElement("div");[m
+[31m-  divrecherche.classList = "space-y-1";[m
+[31m-  const labelrecherche = document.createElement("label");[m
+[31m-  labelrecherche.classList = "block font-semibold text-white text-sm";[m
+[31m-  labelrecherche.textContent = "Recherche";[m
+[31m-  labelrecherche.htmlFor = "recherche";[m
+[31m-[m
+[31m-  rechercheinput = document.createElement("input");[m
+[31m-  rechercheinput.classList = "text-neutral-400 text-sm ";[m
+[31m-  rechercheinput.type = "text";[m
+[31m-  rechercheinput.placeholder = "Ex. Breaking Bad";[m
+[31m-  divrecherche.append(labelrecherche, rechercheinput);[m
+[31m-[m
+[31m-  rechercheinput.addEventListener("input", filtrer);[m
+[31m-[m
+[31m-  //  FILTRER[m
+[31m-  const divfiltrer = document.createElement("div");[m
+[31m-  divfiltrer.classList = "space-y-1";[m
+[31m-[m
+[31m-  const labelfiltrer = document.createElement("label");[m
+[31m-  labelfiltrer.classList = "block font-semibold text-white text-sm ";[m
+[31m-  labelfiltrer.textContent = "Genre";[m
+[31m-  labelfiltrer.htmlFor = "genre";[m
+[31m-[m
+[31m-  //   filtrerinput=document.createElement("input")[m
+[31m-  //     filtrerinput.classList="text-neutral-400 text-sm"[m
+[31m-  //     filtrerinput.type="text"[m
+[31m-[m
+[31m-  //   filtrerinput.placeholder="Tous les genres"[m
+[31m-  genreselect = document.createElement("select");[m
+[31m-  genreselect.id = "genre";[m
+[31m-  genreselect.classList =[m
+[31m-    "w-full bg-[#292929] text-white text-sm rounded-lg px-3 py-2 outline-none";[m
+[31m-  genreselect.innerHTML = `<option value="all">Tous les genres</option>`;[m
+[31m-[m
+[31m-  genreselect.addEventListener("change", filtrer);[m
+[31m-[m
+[31m-  divfiltrer.append(labelfiltrer, genreselect);[m
+[31m-[m
+[31m-  const btn = document.createElement("button");[m
+[31m-  btn.type = "button";[m
+[31m-  btn.textContent = "↻ Réinitialiser";[m
+[31m-  btn.classList =[m
+[31m-    "bg-[#292929] border border-[#303030] rounded-lg px-4 py-2 text-sm font-semibold text-white";[m
+[31m-  search.append(divrecherche, divfiltrer, btn); [m
+[31m-   btn.addEventListener("click",()=>{[m
+[31m-         location.reload();[m
+[31m-[m
+[31m-   })[m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-}[m
+[31m-// FONCTION RECHERCHE[m
+[31m-function filtrer() {[m
+[31m-  const text = rechercheinput.value.toLowerCase();[m
+[31m-  const genres = genreselect.value;[m
+[31m-[m
+[31m-[m
+[31m-  const result = series.filter((ser) => {[m
+[31m-    const recherche = ser.name.toLowerCase().includes(text);[m
+[31m-[m
+[31m-    const genre = genres === "all" || ser.genres.includes(genres);[m
+[31m-[m
+[31m-    return recherche && genre;[m
+[31m-  });[m
+[31m-[m
+[31m-  affichercarte(result);[m
+[31m-}[m
+[31m-[m
+[31m-// FUNCTION FILTRER[m
+[31m-function remplirgenre() {[m
+[31m-  l
