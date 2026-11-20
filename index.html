@@ -6,47 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Serie-Scope</title>
     <link href="./css/output.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="./src/main.js" defer></script>
-    <script src="https://unpkg.com/axios@<x.x.x>/dist/axios.min.js"></script>
 </head>
 
 
 <body>
     <header class="bg-black border-b border-[#1f1f1f]">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center gap-3">
-            <div class="w-9 h-9 rounded-lg bg-white text-black flex items-center justify-center font-bold"><img src="c:\Users\Youcode\Downloads\Vector.png" alt="icon"></div>
+            <!-- <div class="w-9 h-9 rounded-lg bg-white text-black flex items-center justify-center font-bold"><img src="c:\Users\Youcode\Downloads\Vector.png" alt="icon"></div> -->
             <span class="font-semibold text-lg">Seriescope</span>
         </div>
     </header>
     <main class="bg-[#080808] ">
-        <form class="">
-            <h1 class="text-3xl text-white font-bold">Explore les séries TV</h1>
-            <p class="text-sm text-neutral-400 mt-1">Retrouve tes séries préférées et enrichis le catalogue.</p>
-            <div class="p-15">
-                <h3 class="text-2xl text-white">Ajouter une série</h3>
-                <p class="text-sm text-neutral-400 mt-1">Les champs marqués d’un * sont obligatoires.</p>
-                <div class="">
-                    <div class="flex gap-4">
-                        <div class="flex flex-col">
-                        <label class="text-1xl text-white" for="Nom">Nom de la série *</label>
-                        <input class="rounded-lg border border-neutral-800 bg-[#1a1a1a] px-4 py-3 text-sm
-                   text-white " type="text" placeholder="Ex. The Bear" required>
-                   </div>
-                        <div class="flex flex-col">
-                             <label class="text-1xl text-white" for="Genre">Genre(s) *</label>
-                            <input class=" rounded-lg border border-neutral-800 bg-[#1a1a1a] px-4 py-3 text-sm"
-                                type="text" placeholder="Ex. Drame, Comédie">
-                        </div>
+        <section class="max-w-6xl mx-auto px-6 py-6">
+            <h1 class="text-3xl text-white font-bold">
+                Explore les séries TV
+            </h1>
+            <p class="text-sm text-neutral-400 mt-1">
+                Retrouve tes séries préférées et enrichis le catalogue.
+            </p>
+             <p id="message" class="text-red-500 text-xl my-2"></p>
+            <form id="formulaire-serie" class="bg-[#191919] border border-[#303030] rounded-xl p-3 mt-4 m-3">
+                <h3 class="text-xl text-white font-bold">
+                    Ajouter une série
+                </h3>
+
+                <p class="text-sm text-neutral-400 mt-1 mb-4">
+                    Les champs marqués d’un * sont obligatoires.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm text-white" for="nom">
+                            Nom de la série *
+                        </label>
+                        <input id="nom" type="text" placeholder="Ex. The Bear" required
+                            class="  rounded-lg border border-neutral-800 bg-[#1a1a1a] px-3 py-2 text-sm text-white outline-none">
                     </div>
-                    <div class="">
-                        <label class="text-1xl text-white" for="Description">Description</label>
-                        <input class="rounded-lg border border-neutral-800 bg-[#1a1a1a] px-4 py-3 text-sm w-full"
-                            type="text" placeholder="Résume la série en quelques mots…" required>
+                    <div class="flex flex-col gap-2">
+                    <label for="language" class="block text-white text-sm font-medium mb-2">
+                        Langue de la série
+                    </label>
+                    <input type="text" id="language" placeholder="Ex: Français, Anglais..."
+                        class="w-full bg-[#191919] border border-[#303030] rounded-lg px-4 py-2 text-white outline-none focus:border-white" /> </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm text-white" for="genre">
+                            Genre(s) *
+                            <span class="text-neutral-500 text-xs">
+                                — séparés par des virgules
+                            </span>
+                        </label>
+
+                        <input id="genre" type="text" placeholder="Ex. Drame, Comédie" required
+                            class="rounded-lg border border-neutral-800 bg-[#1a1a1a] px-3 py-2 text-sm text-white outline-none">
                     </div>
-                    <button class="bg-white text-1xl text-black p-2 my-3 rounded-lg ">＋ Ajouter la série</button>
+
+                    <div class="flex flex-col gap-2 md:col-span-2">
+                        <label class="text-sm text-white" for="description">
+                            Description
+                            <span class="text-neutral-500 text-xs">facultative</span>
+                        </label>
+
+                        <textarea id="description" placeholder="Résume la série en quelques mots..." rows="3"
+                            class="rounded-lg border border-neutral-800 bg-[#1a1a1a] px-3 py-2 text-sm text-white outline-none "></textarea>
+                    </div>
+
                 </div>
-            </div>
-        </form>
+
+                <button type="submit" class="bg-white text-black text-sm font-semibold px-4 py-2 rounded-lg mt-2">
+                    ＋ Ajouter la série
+                </button>
+                <!-- <div role="alert" class="redalert redalert-success">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+           </svg>
+            <span>Your purchase has been confirmed!</span>
+            </div> -->
+
+            </form>
+         
+        </section>
 
         <!--  -->
 
@@ -99,6 +140,7 @@
         <p class="text-neutral-400 text-sm">Un professeur de chimie mène une double vie.</p>
       </div>
     </article> -->
+         
             </div>
         </section>
     </main>
